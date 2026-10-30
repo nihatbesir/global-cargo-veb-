@@ -1,0 +1,111 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* --- LAMPA VƏ TÜND REJİM (DARK MODE) DİZAYNI --- */
+body {
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Tünd Rejim Stilləri və Şrift Rəngləri */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .bg-light,
+body.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .card {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #333 !important;
+}
+
+/* Tünd rejimdə tünd göy və ya boz qalan bütün mətnləri AĞ edirik */
+body.dark-mode .text-muted,
+body.dark-mode .card-title,
+body.dark-mode .card-text,
+body.dark-mode .section-title,
+body.dark-mode .form-label,
+body.dark-mode label {
+    color: #ffffff !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #333 !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #bbb !important;
+}
+
+/* Lampa İpı Ərazi Düyməsi */
+.lamp-container {
+    position: fixed;
+    top: 0;
+    right: 40px;
+    z-index: 9999;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lamp-string {
+    width: 2px;
+    height: 60px;
+    background-color: #ffc107;
+    margin: 0 auto;
+    transition: height 0.15s ease-in-out;
+}
+
+.lamp-bulb {
+    width: 30px;
+    height: 30px;
+    background-color: #ffc107;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffc107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: transform 0.15s ease-in-out, background-color 0.3s, box-shadow 0.3s;
+}
+
+/* İpi dartdıqda hərəkət animasiyası */
+.lamp-container:active .lamp-string {
+    height: 80px;
+}
+
+.lamp-container:active .lamp-bulb {
+    transform: translateY(20px);
+}
+
+/* Sönülü Lampa */
+body.dark-mode .lamp-bulb {
+    background-color: #555;
+    box-shadow: none;
+}
+
+body.dark-mode .lamp-string {
+    background-color: #777;
+}
